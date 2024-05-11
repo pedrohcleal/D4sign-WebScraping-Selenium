@@ -48,5 +48,39 @@ Execute o script Python `automation.py` e ele irá:
 - O número total de documentos por página é definido como 20. Você pode ajustar esse valor conforme necessário.
 - Certifique-se de substituir o URL correto na função `scrape_documents` para acessar as páginas corretas da plataforma D4sign.
 
+### Função `scrape_documents(driver, pags_num)` -> Detalhes
+
+#### Parâmetros:
+- `driver`: O objeto do WebDriver do Selenium, que permite a interação automatizada com o navegador.
+- `pags_num`: O número total de páginas de documentos na plataforma D4sign.
+
+#### Funcionamento:
+1. **Iteração pelas Páginas:**
+   - A função itera sobre cada página de documentos na plataforma, começando da página 0 até `pags_num - 1`.
+   - Para cada página, o script acessa a URL correspondente à página de documentos, utilizando o método `driver.get()`.
+   
+2. **Espera pela Carregamento:**
+   - Antes de começar a raspar os nomes dos documentos, o script espera um tempo (5 segundos) para garantir que a página esteja completamente carregada.
+
+3. **Localização dos Elementos:**
+   - Utilizando o método `driver.find_elements()`, a função localiza todos os elementos `<span>` que contêm o nome dos documentos.
+   - Estes elementos são identificados pelo seletor CSS `"span[id^='nome_documento']"`, que encontra todos os elementos `<span>` cujo atributo `id` começa com `"nome_documento"`.
+   
+4. **Extração dos Nomes dos Documentos:**
+   - Para cada elemento `<span>` encontrado, a função extrai o texto dentro das tags `<b>`, que representa o nome do documento.
+   - Os nomes dos documentos são adicionados a uma lista chamada `list_names`.
+
+5. **Contagem e Impressão:**
+   - O script imprime o nome de cada documento à medida que é encontrado, além de informações adicionais como o número total de arquivos verificados até o momento e a página atual.
+   - Isso permite que você monitore o progresso e verifique se a raspagem está ocorrendo conforme o esperado.
+
+6. **Retorno da Lista de Nomes de Documentos:**
+   - Após iterar por todas as páginas e coletar os nomes dos documentos, a função retorna a lista completa de nomes de documentos `list_names`.
+
+#### Retorno:
+- A função retorna uma lista contendo os nomes de todos os documentos presentes nas páginas da plataforma D4sign.
+
+Essencialmente, a função `scrape_documents()` automatiza o processo de navegar pelas páginas de documentos na plataforma D4sign e extrair os nomes dos documentos para posterior processamento ou armazenamento.
+
 ---
 **Disclaimer:** Este script foi desenvolvido para fins educacionais e pode precisar de ajustes dependendo das atualizações futuras na plataforma D4sign. Use-o com cuidado e sempre respeite os termos de serviço da plataforma.
