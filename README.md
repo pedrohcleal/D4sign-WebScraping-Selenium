@@ -48,7 +48,7 @@ Execute o script Python `automation.py` e ele irá:
 - O número total de documentos por página é definido como 20. Você pode ajustar esse valor conforme necessário.
 - Certifique-se de substituir o URL correto na função `scrape_documents` para acessar as páginas corretas da plataforma D4sign.
 
-### Função `scrape_documents(driver, pags_num)` -> Detalhes
+### Detalhes da função principal `scrape_documents(driver, pags_num)` 
 
 #### Parâmetros:
 - `driver`: O objeto do WebDriver do Selenium, que permite a interação automatizada com o navegador.
