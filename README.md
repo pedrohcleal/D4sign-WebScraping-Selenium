@@ -1,5 +1,5 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Selenium](https://img.shields.io/badge/-selenium-%43B02A?style=for-the-badge&logo=selenium&logoColor=white)
-# D4sign-WebScrapping-Selenium
+# D4sign-WebScraping-Selenium
 Raspagem de nome de documentos autonôma
 
 ### Automação de Coleta de Nomes de Documentos na Plataforma D4sign
